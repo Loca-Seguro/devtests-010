@@ -1,0 +1,9 @@
+O objetivo dessa arquitetura e ser simples e direta, de forma que a manuntenção seja simples e a compreensão também,
+a arquitetura se baseia em um NotificationService que vai receber as solicitaçoes dos demais serviços da empresa, como
+exemplo coloquei um ERP Interno, o site da Loca e o da imobiliária.
+
+Esse serviço sera responsavel por escolher o channel de envio da mensagem, seja ela qual for: SMS, PUSH, Email, etc ...
+baseado no payload que tera o serviço que esta enviando a requisição, ele também ira criar um registro no banco de envio
+com status, caso seja bem sucedido ficara como "sent", caso não ficara como "failed", dessa forma conseguimos manter o
+trackRecord, pois no log tem todas as informaçoes necessarias (exemplo de registro na imagem), com uma arquitetura de
+facil manuntenção, implementação e entendimento.
